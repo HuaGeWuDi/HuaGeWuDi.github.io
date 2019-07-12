@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>个人简历</title>
     <script>
+        var timer;
         function getScrollTop() {
             var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
             if (document.body) {
@@ -45,7 +46,15 @@
         };
         //置顶
         function fnGetTop() {
-            window.scrollTo(0, 0);
+            //window.scrollTo(0, 0);
+            timer=setInterval(function(){
+              var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var ispeed = Math.floor(-scrollTop / 6);
+                if (scrollTop == 0) {
+                    clearInterval(timer);
+                }
+                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;                
+            },20)
         }
     </script>
     <style>
