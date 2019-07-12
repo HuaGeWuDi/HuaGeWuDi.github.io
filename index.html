@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
     <title>个人简历</title>
     <script>
         var timer;
@@ -47,14 +49,20 @@
         //置顶
         function fnGetTop() {
             //window.scrollTo(0, 0);
-            timer=setInterval(function(){
-              var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            timer = setInterval(function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
                 var ispeed = Math.floor(-scrollTop / 6);
                 if (scrollTop == 0) {
                     clearInterval(timer);
                 }
-                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;                
-            },20)
+                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;
+            }, 30)
+        }
+
+        window.onload = () => {
+            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                document.getElementsByName("body").style.padding = '0';
+            }
         }
     </script>
     <style>
@@ -310,6 +318,11 @@
             <tr>
                 <td colspan="4">
                     责任描述：	该项目中主要负责了学生日常管理中的学业奖学金，助学金，朱静文奖学金，朱静文助学金，优秀研究生，优秀研究生干部等学生日常业务的申请、审核、统计等功能。
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <hr class="hr-dashed" />
                 </td>
             </tr>
             <tr class="content-tr">
